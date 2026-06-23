@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximalist Invoice Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="marquee">
+        <div class="marquee-content">
+            INVOICE GENERATOR // GET PAID // INVOICE GENERATOR // GET PAID // INVOICE GENERATOR // GET PAID // INVOICE GENERATOR // GET PAID //
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Editor Section -->
+        <section class="editor-section">
+            <h1 class="title">MAKE AN INVOICE</h1>
+            
+            <form id="invoice-form">
+                <div class="card neo-brutal">
+                    <h2>Sender Details</h2>
+                    <input type="text" id="sender-name" placeholder="Your Name / Company" value="Super Design Co.">
+                    <input type="text" id="sender-email" placeholder="Your Email" value="hello@superdesign.com">
+                    <textarea id="sender-address" placeholder="Your Address">123 Acid Wave St.&#10;Cyber City, 90210</textarea>
+                </div>
+
+                <div class="card neo-brutal">
+                    <h2>Client Details</h2>
+                    <input type="text" id="client-name" placeholder="Client Name" value="Boring Corp.">
+                    <input type="text" id="client-email" placeholder="Client Email" value="accounts@boringcorp.com">
+                    <textarea id="client-address" placeholder="Client Address">456 Corporate Blvd.&#10;Dullsville, 10001</textarea>
+                </div>
+
+                <div class="card neo-brutal">
+                    <h2>Invoice Details</h2>
+                    <input type="text" id="invoice-number" placeholder="Invoice #" value="INV-001">
+                    <input type="date" id="invoice-date" value="2026-06-23">
+                </div>
+
+                <div class="card neo-brutal">
+                    <h2>Items</h2>
+                    <div id="items-container">
+                        <!-- Items will be injected here -->
+                    </div>
+                    <button type="button" id="add-item-btn" class="btn neo-brutal-btn">+ ADD ITEM</button>
+                </div>
+
+                <div class="card neo-brutal">
+                    <h2>Totals & Extras</h2>
+                    <input type="number" id="tax-rate" placeholder="Tax Rate (%)" value="10">
+                    <textarea id="notes" placeholder="Payment Notes">Please pay within 30 days. No excuses.</textarea>
+                </div>
+            </form>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="preview-section">
+            <div id="invoice-preview" class="invoice-preview neo-brutal">
+                <div class="preview-header">
+                    <h1 class="preview-title">INVOICE</h1>
+                    <div class="preview-meta">
+                        <p><strong>#</strong> <span id="preview-invoice-number">INV-001</span></p>
+                        <p><strong>DATE:</strong> <span id="preview-invoice-date">2026-06-23</span></p>
+                    </div>
+                </div>
+
+                <div class="preview-parties">
+                    <div class="preview-sender">
+                        <h3>FROM</h3>
+                        <p id="preview-sender-name">Super Design Co.</p>
+                        <p id="preview-sender-email">hello@superdesign.com</p>
+                        <p id="preview-sender-address" class="pre-line">123 Acid Wave St.<br>Cyber City, 90210</p>
+                    </div>
+                    <div class="preview-client">
+                        <h3>TO</h3>
+                        <p id="preview-client-name">Boring Corp.</p>
+                        <p id="preview-client-email">accounts@boringcorp.com</p>
+                        <p id="preview-client-address" class="pre-line">456 Corporate Blvd.<br>Dullsville, 10001</p>
+                    </div>
+                </div>
+
+                <table class="preview-table">
+                    <thead>
+                        <tr>
+                            <th>DESCRIPTION</th>
+                            <th>QTY</th>
+                            <th>PRICE</th>
+                            <th>TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="preview-items-body">
+                        <!-- Preview Items -->
+                    </tbody>
+                </table>
+
+                <div class="preview-totals">
+                    <div class="totals-row">
+                        <span>SUBTOTAL:</span>
+                        <span id="preview-subtotal">$0.00</span>
+                    </div>
+                    <div class="totals-row">
+                        <span>TAX (<span id="preview-tax-rate">10</span>%):</span>
+                        <span id="preview-tax-amount">$0.00</span>
+                    </div>
+                    <div class="totals-row grand-total">
+                        <span>TOTAL DUE:</span>
+                        <span id="preview-grand-total">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="preview-footer">
+                    <h3>NOTES</h3>
+                    <p id="preview-notes" class="pre-line">Please pay within 30 days. No excuses.</p>
+                </div>
+            </div>
+
+            <button type="button" id="print-btn" class="btn neo-brutal-btn print-btn">PRINT / SAVE AS PDF</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
